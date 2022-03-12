@@ -38,4 +38,41 @@
         }
 
     }
+
+    .loader {
+        display: none;
+        
+    }
+
+    .apiData {
+        margin: 10px 0 0 0;
+        .mainInfo {
+            display: flex;
+            background-color: $primaryBgColor;
+            padding: 30px;
+            color: $mainInfoTextColor;
+            border-radius: 10px;
+
+            .degrees {
+                display: flex;
+                font-size: 40px;
+                margin: 0 20px;
+
+                span {
+                    font-size: 14px;
+                    margin: 0 0 0 10px;
+                }
+            }
+
+            .info {
+                p {
+                    margin: 0 0 4px 0;
+
+                    &:last-of-type {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
 }
