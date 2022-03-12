@@ -8,3 +8,34 @@
     min-height: 100%;
     object-fit: cover;
 }
+
+.weather {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .title {
+        margin: 0 0 20px 0;
+        font-size: 80px;
+    }
+
+    .weatherForm {
+        max-width: 500px;
+        width: 100%;
+
+        .city {
+            padding: 10px 20px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            font-weight: 500;
+            outline: none;
+            border-radius: 15px;
+            border: none;
+            font-size: 18px;
+        }
+
+    }
+}
