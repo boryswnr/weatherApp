@@ -36,18 +36,27 @@ weatherform.addEventListener('submit', (event) => {
 
             view += `</div>`
 
+
+            // forecast
+
             view += `<div class="days">`
+            view += `<h3 class="forecastTitle">Forecast</h3>`
+            //day
+            view += `<div class="forecastDay">`
+            
+            
             dataFromApi.forecast.forecastday.forEach((day) => {
                 
-                //day
-            view += `<div class="day">`
-            view += `<div class="date">${day.date}</div>`
-            view += `<div class="icon"><img src="${day.day.condition.icon}" alt="weatherIcon"</div>`
-            view += `<div class="avgTemp">${day.day.avgtemp_c}<span><sup>o</sup>C</span></div>`    
-            view += `</div>`
+                view += `<div class="dayContainer">`
+                view += `<div class="date">${day.date}</div>`
+                view += `<div class="icon"><img src="${day.day.condition.icon}" alt="weatherIcon"></div>`
+                view += `<div class="avgTemp">${day.day.avgtemp_c}<span><sup>o</sup>C</span></div>`    
+                view += `</div>`
 
             })
-
+            
+            view += `</div>`
+            
             // closing off 'days' div
             view += `</div>`
 

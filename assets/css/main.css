@@ -41,9 +41,15 @@ h1, h2, h3, h4, h5, h6 {
           flex-direction: column;
   min-height: 100vh;
 }
+@media (max-width: 480px) {
+  .weather {
+    text-align: center;
+    margin: 0 8px;
+  }
+}
 .weather .title {
   margin: 0 0 20px 0;
-  font-size: 80px;
+  font-size: clamp(3.75rem, 1.0833rem + 13.3333vw, 5rem);
 }
 .weather .weatherForm {
   max-width: 500px;
@@ -75,6 +81,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   border-radius: 10px;
 }
+@media (max-width: 480px) {
+  .weather .apiData .mainInfo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
 .weather .apiData .mainInfo .degrees {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -91,6 +108,65 @@ h1, h2, h3, h4, h5, h6 {
 }
 .weather .apiData .mainInfo .info p:last-of-type {
   margin: 0;
+}
+.weather .apiData .days {
+  margin: 10px 0 0 0;
+  background-color: rgba(0, 0, 0, 0.486);
+  border-radius: 10px;
+  padding: 0 10px 10px 10px;
+}
+@media (max-width: 480px) {
+  .weather .apiData .days {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.weather .apiData .days .forecastTitle {
+  color: #fff;
+  font-size: 30px;
+  margin: 2px 2px 20px 2px;
+  text-align: center;
+}
+.weather .apiData .days .forecastDay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+@media (max-width: 480px) {
+  .weather .apiData .days .forecastDay {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.weather .apiData .days .forecastDay .dayContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 480px) {
+  .weather .apiData .days .forecastDay .dayContainer {
+    margin: 10px 0;
+  }
 }
 
 .lds-ring {
