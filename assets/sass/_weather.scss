@@ -26,22 +26,36 @@
         font-size: clamp(3.75rem, 1.0833rem + 13.3333vw, 5rem);
     }
 
-    .weatherForm {
-        max-width: 500px;
+    .formContainer {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        max-width: 600px;
         width: 100%;
 
-        .city {
-            padding: 10px 20px;
-            width: 100%;
-            display: block;
-            text-align: center;
-            font-weight: 500;
-            outline: none;
-            border-radius: 15px;
-            border: none;
-            font-size: 18px;
+        .fa-location-crosshairs {
+            color: $mainInfoTextColor;
+            margin: 5px;
+            cursor: pointer;
         }
+        
+        .weatherForm {
+            max-width: 700px;
+            width: 100%;
 
+            .city {
+                padding: 10px 20px;
+                width: 100%;
+                display: block;
+                text-align: center;
+                font-weight: 500;
+                outline: none;
+                border-radius: 15px;
+                border: none;
+                font-size: 18px;
+            }
+
+        }
     }
 
     .loader {
@@ -51,6 +65,13 @@
 
     .apiData {
         margin: 10px 0 0 0;
+
+        .error {
+            background-color: #57000094;
+            color: $mainInfoTextColor;
+            padding: 10px;
+            border-radius: 10px;
+        }
 
         .mainInfo {
             display: flex;

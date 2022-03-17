@@ -9,7 +9,14 @@ weatherform.addEventListener('submit', (event) => {
     let userApiURL = apiURL + userCity
 
     fetch(userApiURL)
-    .then(response => response.json())
+        .then(response => {
+            if (response.status === 200) {
+                return response.json()
+            } else {
+                return showError()
+            }
+            
+        })
         .then((dataFromApi) => {
 
             hideLoader()
@@ -76,3 +83,30 @@ let showLoader = () => {
 let hideLoader = () => {
     loader.style.display = 'none'
 }
+
+let showError = () => {
+    apiDataContainer.innerHTML=`<div class="error">Your city was not found or we have network problems.</div>`
+}
+
+let getLocation = () => {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError) 
+}
+
+let geoSuccess = (pos) => {
+    const latitude = pos.coords.latitude
+    const longitude = pos.coords.longitude
+    console.log('Your current position:')
+    console.log(latitude)
+    console.log(longitude )
+}
+
+let geoError = () => {
+    alert("Cannot get your location right now. Type in city manually.")
+}
+
+
+let localisator = document.querySelector('.fa-location-crosshairs')
+localisator.addEventListener('click', (e) => {
+    getLocation()
+    
+})

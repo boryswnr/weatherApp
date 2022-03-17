@@ -51,11 +51,29 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   font-size: clamp(3.75rem, 1.0833rem + 13.3333vw, 5rem);
 }
-.weather .weatherForm {
-  max-width: 500px;
+.weather .formContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  max-width: 600px;
   width: 100%;
 }
-.weather .weatherForm .city {
+.weather .formContainer .fa-location-crosshairs {
+  color: #fff;
+  margin: 5px;
+  cursor: pointer;
+}
+.weather .formContainer .weatherForm {
+  max-width: 700px;
+  width: 100%;
+}
+.weather .formContainer .weatherForm .city {
   padding: 10px 20px;
   width: 100%;
   display: block;
@@ -71,6 +89,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .weather .apiData {
   margin: 10px 0 0 0;
+}
+.weather .apiData .error {
+  background-color: #57000094;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
 }
 .weather .apiData .mainInfo {
   display: -webkit-box;
