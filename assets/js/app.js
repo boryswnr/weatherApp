@@ -93,11 +93,15 @@ let getLocation = () => {
 }
 
 let geoSuccess = (pos) => {
-    const latitude = pos.coords.latitude
-    const longitude = pos.coords.longitude
+    const lat = pos.coords.latitude
+    const lng = pos.coords.longitude
     console.log('Your current position:')
-    console.log(latitude)
-    console.log(longitude )
+    console.log(lat)
+    console.log(lng)
+
+    // Searching by coordinates works fine with our weather api
+    document.querySelector('.city').value = (lat.toString() + ' ' + lng.toString())
+    document.querySelector('.city').focus()    
 }
 
 let geoError = () => {
@@ -108,5 +112,5 @@ let geoError = () => {
 let localisator = document.querySelector('.fa-location-crosshairs')
 localisator.addEventListener('click', (e) => {
     getLocation()
-    
 })
+
