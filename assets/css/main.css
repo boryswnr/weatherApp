@@ -1,253 +1,262 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Roboto", sans-serif;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Sansita Swashed", cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Sansita Swashed", cursive;
 }
 
 .bg {
-  position: fixed;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+    position: fixed;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
 }
 
 .weather {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 100vh;
-}
-@media (max-width: 480px) {
-  .weather {
-    text-align: center;
-    margin: 0 8px;
-  }
-}
-.weather .title {
-  margin: 0 0 20px 0;
-  font-size: clamp(3.75rem, 1.0833rem + 13.3333vw, 5rem);
-}
-.weather .formContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  max-width: 600px;
-  width: 100%;
-}
-.weather .formContainer .fa-location-crosshairs {
-  color: #fff;
-  margin: 5px;
-  cursor: pointer;
-}
-.weather .formContainer .weatherForm {
-  max-width: 700px;
-  width: 100%;
-}
-.weather .formContainer .weatherForm .city {
-  padding: 10px 20px;
-  width: 100%;
-  display: block;
-  text-align: center;
-  font-weight: 500;
-  outline: none;
-  border-radius: 15px;
-  border: none;
-  font-size: 18px;
-}
-.weather .loader {
-  display: none;
-}
-.weather .apiData {
-  margin: 10px 0 0 0;
-}
-.weather .apiData .error {
-  background-color: #57000094;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-}
-.weather .apiData .mainInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.486);
-  padding: 30px;
-  color: #fff;
-  border-radius: 10px;
-}
-@media (max-width: 480px) {
-  .weather .apiData .mainInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-.weather .apiData .mainInfo .degrees {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 40px;
-  margin: 0 20px;
-}
-.weather .apiData .mainInfo .degrees span {
-  font-size: 14px;
-  margin: 0 0 0 10px;
-}
-.weather .apiData .mainInfo .info p {
-  margin: 0 0 4px 0;
-}
-.weather .apiData .mainInfo .info p:last-of-type {
-  margin: 0;
-}
-.weather .apiData .days {
-  margin: 10px 0 0 0;
-  background-color: rgba(0, 0, 0, 0.486);
-  border-radius: 10px;
-  padding: 0 10px 10px 10px;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
 }
 @media (max-width: 480px) {
-  .weather .apiData .days {
+    .weather {
+        text-align: center;
+        margin: 0 8px;
+    }
+}
+.weather .title {
+    margin: 0 0 20px 0;
+    font-size: clamp(3.75rem, 1.0833rem + 13.3333vw, 5rem);
+}
+.weather .formContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    max-width: 600px;
+    width: 100%;
+}
+.weather .formContainer .fa-location-crosshairs {
+    color: #fff;
+    margin: 5px;
+    cursor: pointer;
+}
+.weather .formContainer .fa-location-crosshairs:hover {
+    color: #bbbbbb;
+}
+.weather .formContainer .weatherForm {
+    max-width: 700px;
+    width: 100%;
+}
+.weather .formContainer .weatherForm .city {
+    padding: 10px 20px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    outline: none;
+    border-radius: 15px;
+    border: none;
+    font-size: 18px;
+}
+.weather .loader {
+    display: none;
+}
+.weather .apiData {
+    margin: 10px 0 0 0;
+}
+.weather .apiData .error {
+    background-color: #57000094;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.weather .apiData .mainInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.486);
+    padding: 30px;
+    color: #fff;
+    border-radius: 10px;
+}
+@media (max-width: 480px) {
+    .weather .apiData .mainInfo {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+.weather .apiData .mainInfo .degrees {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 40px;
+    margin: 0 20px;
+}
+.weather .apiData .mainInfo .degrees span {
+    font-size: 14px;
+    margin: 0 0 0 10px;
+}
+.weather .apiData .mainInfo .info p {
+    margin: 0 0 4px 0;
+}
+.weather .apiData .mainInfo .info p:last-of-type {
+    margin: 0;
+}
+.weather .apiData .days {
+    margin: 10px 0 0 0;
+    background-color: rgba(0, 0, 0, 0.486);
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+}
+@media (max-width: 480px) {
+    .weather .apiData .days {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+}
+.weather .apiData .days .forecastTitle {
+    color: #fff;
+    font-size: 30px;
+    margin: 2px 2px 20px 2px;
+    text-align: center;
+}
+.weather .apiData .days .forecastDay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+@media (max-width: 480px) {
+    .weather .apiData .days .forecastDay {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+}
+.weather .apiData .days .forecastDay .dayContainer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-.weather .apiData .days .forecastTitle {
-  color: #fff;
-  font-size: 30px;
-  margin: 2px 2px 20px 2px;
-  text-align: center;
-}
-.weather .apiData .days .forecastDay {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #fff;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+    -ms-flex-align: center;
+    align-items: center;
 }
 @media (max-width: 480px) {
-  .weather .apiData .days .forecastDay {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-.weather .apiData .days .forecastDay .dayContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-@media (max-width: 480px) {
-  .weather .apiData .days .forecastDay .dayContainer {
-    margin: 10px 0;
-  }
+    .weather .apiData .days .forecastDay .dayContainer {
+        margin: 10px 0;
+    }
 }
 
 .lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
 }
 
 .lds-ring div {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    -webkit-animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
-  -webkit-animation-delay: -0.45s;
-          animation-delay: -0.45s;
+    -webkit-animation-delay: -0.45s;
+    animation-delay: -0.45s;
 }
 
 .lds-ring div:nth-child(2) {
-  -webkit-animation-delay: -0.3s;
-          animation-delay: -0.3s;
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
 }
 
 .lds-ring div:nth-child(3) {
-  -webkit-animation-delay: -0.15s;
-          animation-delay: -0.15s;
+    -webkit-animation-delay: -0.15s;
+    animation-delay: -0.15s;
 }
 
 @-webkit-keyframes lds-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes lds-ring {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
