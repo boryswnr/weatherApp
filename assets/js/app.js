@@ -4,8 +4,23 @@ const apiURL =
 const apiDataContainer = document.querySelector(".apiData");
 const loader = document.querySelector(".loader");
 let hour;
-
+const time = new Date();
+const hourNow = time.getHours();
 weatherform.addEventListener("submit", (event) => getWeatherForecast(event));
+
+const adjustBG = (h) => {
+    const nightBg = document.querySelector(".night");
+    const dayBg = document.querySelector(".day");
+    if (18 > h && h > 6) {
+        nightBg.style.display = "none";
+        dayBg.style.display = "block";
+    } else {
+        nightBg.style.display = "block";
+        dayBg.style.display = "none";
+    }
+};
+
+adjustBG(hourNow);
 
 const getWeatherForecast = (e) => {
     showLoader();
@@ -68,15 +83,8 @@ const getWeatherForecast = (e) => {
             hour = dataFromApi.location.localtime.split(" ")[1];
             // take hour:minute, extract hour and turn it to number
             hour = +hour.split(":")[0];
-            const nightBg = document.querySelector(".night");
-            const dayBg = document.querySelector(".day");
-            if (18 > hour && hour > 6) {
-                nightBg.style.display = "none";
-                dayBg.style.display = "block";
-            } else {
-                nightBg.style.display = "block";
-                dayBg.style.display = "none";
-            }
+
+            adjustBG(hour);
         });
 
     e.preventDefault();
@@ -108,11 +116,6 @@ const searchMyPosition = async (e) => {
     const coords = latitude + " " + longitude;
     document.querySelector(".city").value = coords;
     await getWeatherForecast(e);
-};
-
-const getTimeOnStart = () => {
-    const time = new Date();
-    const hour = time.getHours();
 };
 
 const localisator = document.querySelector(".fa-location-crosshairs");
