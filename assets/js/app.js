@@ -3,10 +3,37 @@ const apiURL =
     "https://api.weatherapi.com/v1/forecast.json?key=d132cd6234a44a599e1124638221203&days=7&q=";
 const apiDataContainer = document.querySelector(".apiData");
 const loader = document.querySelector(".loader");
-let hour;
 const time = new Date();
 const hourNow = time.getHours();
-weatherform.addEventListener("submit", (event) => getWeatherForecast(event));
+const localisator = document.querySelector(".fa-location-crosshairs");
+let hour;
+const showLoader = () => {
+    loader.style.display = "block";
+};
+
+const hideLoader = () => {
+    loader.style.display = "none";
+};
+
+const showError = () => {
+    apiDataContainer.innerHTML = `<div class="error">Your city was not found or we have network problems.</div>`;
+};
+
+const getLocation = () => {
+    return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+};
+
+const searchMyPosition = async (e) => {
+    showLoader();
+    const position = await getLocation();
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const coords = latitude + " " + longitude;
+    document.querySelector(".city").value = coords;
+    await getWeatherForecast(e);
+};
 
 const adjustBG = (h) => {
     const nightBg = document.querySelector(".night");
@@ -19,6 +46,11 @@ const adjustBG = (h) => {
         dayBg.style.display = "none";
     }
 };
+
+localisator.addEventListener("click", async (e) => {
+    searchMyPosition(e);
+});
+weatherform.addEventListener("submit", (event) => getWeatherForecast(event));
 
 adjustBG(hourNow);
 
@@ -37,7 +69,6 @@ const getWeatherForecast = (e) => {
         })
         .then((dataFromApi) => {
             hideLoader();
-            //console.log(dataFromApi.current.condition.text)
             let view = "";
             view += `<div class="mainInfo">`;
 
@@ -89,37 +120,3 @@ const getWeatherForecast = (e) => {
 
     e.preventDefault();
 };
-
-const showLoader = () => {
-    loader.style.display = "block";
-};
-
-const hideLoader = () => {
-    loader.style.display = "none";
-};
-
-const showError = () => {
-    apiDataContainer.innerHTML = `<div class="error">Your city was not found or we have network problems.</div>`;
-};
-
-const getLocation = () => {
-    return new Promise(function (resolve, reject) {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
-};
-
-const searchMyPosition = async (e) => {
-    showLoader();
-    const position = await getLocation();
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const coords = latitude + " " + longitude;
-    document.querySelector(".city").value = coords;
-    await getWeatherForecast(e);
-};
-
-const localisator = document.querySelector(".fa-location-crosshairs");
-localisator.addEventListener("click", async (e) => {
-    searchMyPosition(e);
-    // getTimeOnStart();
-});
