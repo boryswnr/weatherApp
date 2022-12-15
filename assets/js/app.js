@@ -3,6 +3,7 @@ const apiURL =
     "https://api.weatherapi.com/v1/forecast.json?key=d132cd6234a44a599e1124638221203&days=7&q=";
 const apiDataContainer = document.querySelector(".apiData");
 const loader = document.querySelector(".loader");
+let hour;
 
 weatherform.addEventListener("submit", (event) => getWeatherForecast(event));
 
@@ -63,7 +64,23 @@ const getWeatherForecast = (e) => {
             view += `</div>`;
 
             apiDataContainer.innerHTML = view;
+            // take local time from API data, extract hour string
+            hour = dataFromApi.location.localtime.split(" ")[1];
+            // take hour:minute, extract hour and turn it to number
+            hour = +hour.split(":")[0];
+            console.log(hour);
+            console.log("typeOf", typeof hour);
         });
+
+    const nightBg = document.querySelector(".night");
+    const dayBg = document.querySelector(".day");
+    if (18 > hour > 6) {
+        nightBg.style.display = "none";
+        dayBg.style.display = "block";
+    } else {
+        nightBg.style.display = "block";
+        dayBg.style.display = "none";
+    }
 
     e.preventDefault();
 };
@@ -87,15 +104,23 @@ const getLocation = () => {
 };
 
 const searchMyPosition = async (e) => {
+    showLoader();
     const position = await getLocation();
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     const coords = latitude + " " + longitude;
     document.querySelector(".city").value = coords;
-    getWeatherForecast(e);
+    await getWeatherForecast(e);
+};
+
+const getTimeOnStart = () => {
+    const time = new Date();
+    const hour = time.getHours();
+    console.log(hour);
 };
 
 const localisator = document.querySelector(".fa-location-crosshairs");
 localisator.addEventListener("click", async (e) => {
     searchMyPosition(e);
+    // getTimeOnStart();
 });

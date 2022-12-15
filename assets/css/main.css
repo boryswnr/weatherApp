@@ -31,6 +31,10 @@ h6 {
     display: block;
 }
 
+.night {
+    display: none;
+}
+
 .weather {
     display: -webkit-box;
     display: -ms-flexbox;
