@@ -68,19 +68,16 @@ const getWeatherForecast = (e) => {
             hour = dataFromApi.location.localtime.split(" ")[1];
             // take hour:minute, extract hour and turn it to number
             hour = +hour.split(":")[0];
-            console.log(hour);
-            console.log("typeOf", typeof hour);
+            const nightBg = document.querySelector(".night");
+            const dayBg = document.querySelector(".day");
+            if (18 > hour && hour > 6) {
+                nightBg.style.display = "none";
+                dayBg.style.display = "block";
+            } else {
+                nightBg.style.display = "block";
+                dayBg.style.display = "none";
+            }
         });
-
-    const nightBg = document.querySelector(".night");
-    const dayBg = document.querySelector(".day");
-    if (18 > hour > 6) {
-        nightBg.style.display = "none";
-        dayBg.style.display = "block";
-    } else {
-        nightBg.style.display = "block";
-        dayBg.style.display = "none";
-    }
 
     e.preventDefault();
 };
@@ -116,7 +113,6 @@ const searchMyPosition = async (e) => {
 const getTimeOnStart = () => {
     const time = new Date();
     const hour = time.getHours();
-    console.log(hour);
 };
 
 const localisator = document.querySelector(".fa-location-crosshairs");
