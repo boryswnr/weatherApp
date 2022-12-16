@@ -7,6 +7,11 @@
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    display: block;
+
+    &.night {
+        display: none;
+    }
 }
 
 .weather {
@@ -16,7 +21,7 @@
     flex-direction: column;
     min-height: 100vh;
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
         text-align: center;
         margin: 0 8px;
     }
@@ -37,8 +42,12 @@
             color: $mainInfoTextColor;
             margin: 5px;
             cursor: pointer;
+
+            &:hover {
+                color: #bbbbbb;
+            }
         }
-        
+
         .weatherForm {
             max-width: 700px;
             width: 100%;
@@ -54,13 +63,11 @@
                 border: none;
                 font-size: 18px;
             }
-
         }
     }
 
     .loader {
         display: none;
-
     }
 
     .apiData {
@@ -143,10 +150,7 @@
                     @media (max-width: 480px) {
                         margin: 10px 0;
                     }
-
                 }
-
-
             }
         }
     }
